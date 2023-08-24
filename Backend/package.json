@@ -1,0 +1,19 @@
+{
+  "name": "careers",
+  "version": "1.0.0",
+  "description": "A simple page to land you to the careers portal of your dream compan(y/ies)",
+  "main": "Index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon Index.js"
+  },
+  "author": "Ishaan Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
