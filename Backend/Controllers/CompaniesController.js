@@ -22,20 +22,11 @@ export const getCompanies = async (request , response) => {
 
 export const uploadCompany = async (request , response) => {
     try {
-        const { companyName , careerPage } = request.body;
-        const searchResult = await Company.findOne({ $or: [{ companyName }, { careerPage }] });
-
-        // Find whether the company exists in the database
-        // If yes then skip
-        if(searchResult){
-            return response.status(400).json({ "Message": 'Company already exists' });
-        }
-
         // Else
-            // Find the logo of the company
-            // Find the description of the company
+            // TODO: Find the logo of the company
+            // TODO: Find the description of the company
+            
             // Store in the database
-
         const newCompany = new Company(request.body);
         const saveNewCompany = await newCompany.save();
 
@@ -49,16 +40,7 @@ export const uploadCompany = async (request , response) => {
 
 export const deleteCompany = async (request , response) => {
     try {
-        const id = request.params.id;
-        const searchResult = await Company.findById(id);
-        console.log(searchResult)
-
-        if(!searchResult){
-            return response.status(404).json({
-                "Message": "Company Not Found"
-            })
-        }
-
+        const id = request.params.id
         await Company.findByIdAndDelete(id);
         response.status(204).json({
             "Message": "Company deleted successfully!"
