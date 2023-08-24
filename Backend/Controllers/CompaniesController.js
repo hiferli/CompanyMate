@@ -46,3 +46,26 @@ export const uploadCompany = async (request , response) => {
         })
     }
 }
+
+export const deleteCompany = async (request , response) => {
+    try {
+        const id = request.params.id;
+        const searchResult = await Company.findById(id);
+        console.log(searchResult)
+
+        if(!searchResult){
+            return response.status(404).json({
+                "Message": "Company Not Found"
+            })
+        }
+
+        await Company.findByIdAndDelete(id);
+        response.status(204).json({
+            "Message": "Company deleted successfully!"
+        })
+    } catch (error) {
+        response.status(500).json({
+            "Message": error.message
+        })  
+    }
+}
