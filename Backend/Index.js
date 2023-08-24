@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from "dotenv";
 import mongoose from 'mongoose'
+import careersRoutes from './Routes/CompanyRoutes.js'
 
 dotenv.config()
 
@@ -20,6 +21,8 @@ app.use(express.json())
 app.get('/', (request, response) => {
     response.send('Hello World!')
 })
+
+app.use("/api" , careersRoutes);
 
 const port = process.env.BACKEND_PORT
 app.listen(port, () => {
