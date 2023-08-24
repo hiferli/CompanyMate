@@ -1,4 +1,3 @@
-import { response } from 'express';
 import Company from '../Models/Company.js'
 
 export const getCompanies = async (request , response) => {
@@ -49,5 +48,19 @@ export const deleteCompany = async (request , response) => {
         response.status(500).json({
             "Message": error.message
         })  
+    }
+}
+
+export const updateCompany = async (request , response) => {
+    try {
+        const id = request.params.id;
+        const newData = request.body;
+
+        const updatedCompany = await Company.findByIdAndUpdate(id , newData , {new: true});
+        return response.status(200).json(updatedCompany) 
+    } catch (error) {
+        response.status(500).json({
+            "Message": error.message
+        }) 
     }
 }
