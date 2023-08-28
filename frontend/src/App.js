@@ -5,8 +5,8 @@ import UploadCompany from './Pages/UploadCompany';
 function App() {
 	return (
 		<>
-			{/* <Companies /> */}
-			<UploadCompany />
+			<Companies />
+			{/* <UploadCompany /> */}
 		</>
 	);
 }
