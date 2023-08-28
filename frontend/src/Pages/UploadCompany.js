@@ -39,12 +39,12 @@ const UploadCompany = () => {
             .catch((error) => console.log(error));
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (isValid()) {
-            alert("Form is okay");
-            uploadCompany();
-            console.log('Form data submitted:', formData);
+            // alert("Form is okay");
+            await uploadCompany();
+            // console.log('Form data submitted:', formData);
         }
     };
 
