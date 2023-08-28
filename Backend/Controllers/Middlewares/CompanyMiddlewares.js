@@ -41,7 +41,7 @@ export const checkIfNotExisting = async (request , response , next) => {
     try {
         const id = request.params.id;
         const searchResult = await Company.findById(id);
-        console.log(searchResult)
+        // console.log(searchResult)
 
         if(!searchResult){
             return response.status(404).json({

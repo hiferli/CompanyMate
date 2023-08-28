@@ -6,7 +6,7 @@ export const getCompanies = async (request , response) => {
         let query = {};
 
         if(name){
-            console.log(name)
+            // console.log(name)
             query.companyName = { $regex : name.toLowerCase() , $options : 'i'};
         }
         
