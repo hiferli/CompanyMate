@@ -1,23 +1,32 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { getAllCompanies } from '../Utilities/Routes'
+import Company from '../Components/Company';
 
 const Companies = () => {
-    const [data, setData] = useState(null);
-
-    const getData = async () => {
-        await axios.get(getAllCompanies)
-        .then((response) => setData(response))
-        .catch((error) => console.log(error))
-        .finally(() => console.log(data.data));
-    }
-
+    const [allCompanies, setAllCompanies] = useState([]);
+    
     useEffect(() => {
-        getData()
+        (
+            async () => {
+                await axios.get(getAllCompanies)
+                    .then((response) => setAllCompanies(response.data))
+                    .catch((error) => console.log(error))
+                    // .finally(() => console.log(allCompanies));
+            }
+        )();
     }, [])
 
     return (
-        <div>Companies</div>
+        <>
+            {
+                allCompanies.map((company) => {
+                    return (
+                        <Company key={company._id} details={company}/>
+                    )
+                })
+            }
+        </>
     )
 }
 
