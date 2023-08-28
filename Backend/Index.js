@@ -2,6 +2,7 @@ import express from 'express'
 import dotenv from "dotenv";
 import mongoose from 'mongoose'
 import careersRoutes from './Routes/CompanyRoutes.js'
+import cors from 'cors'
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ db.on('error' , (error) => console.error(error));
 db.on('open' , () => console.log('Connection to database successful'));
 
 
+app.use(cors())
 app.use(express.json())
 
 
