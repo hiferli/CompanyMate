@@ -1,8 +1,16 @@
 import React from 'react'
 
+function toTitleCase(text) {
+    return text
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
 const Company = ({ details }) => {
     return (
-        <div>{details.companyName}</div>
+        <div>{toTitleCase(details.companyName)}</div>
     )
 }
 
