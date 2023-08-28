@@ -2,15 +2,24 @@ import Company from '../Models/Company.js'
 
 export const getCompanies = async (request , response) => {
     try {
-        const { view } = request.query;
-        let allCompanies;
+        const { name , view } = request.query;
+        let query = {};
 
-        if(view === 'mostVisited'){
-            allCompanies = await Company.find().sort({ numberOfViews: -1 });
+        if(name){
+            console.log(name)
+            query.companyName = { $regex : name.toLowerCase() , $options : 'i'};
+        }
+        
+        let sortCriteria = {};
+
+        if(view == 'mostVisited'){
+            sortCriteria = { numberOfViews: -1}
         } else {
-            allCompanies = await Company.find().sort({ companyName: 1 });
+            sortCriteria = { companyName: 1};
         }
 
+        const allCompanies = await Company.find(query).sort(sortCriteria);
+        
         response.status(201).json(allCompanies);
     } catch (error) {
         response.status(500).json({
