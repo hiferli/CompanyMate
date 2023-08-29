@@ -21,10 +21,10 @@ const Companies = () => {
     };
 
     const isValid = async () => {
-        if (query.name === "") {
-            alert("Please Enter a Valid Company Name!")
-            return false;
-        }
+        // if (query.name === "") {
+        //     alert("Please Enter a Valid Company Name!")
+        //     return false;
+        // }
 
         if (query.view === "") {
             query.view = 'alphabetical'
@@ -79,7 +79,7 @@ const Companies = () => {
                         name="name"
                         value={query.name || ""}
                         onChange={handleInputChange}
-                        required
+                        // required
                     />
                 </div>
 

@@ -10,7 +10,11 @@ function toTitleCase(text) {
 
 const Company = ({ details }) => {
     return (
-        <div>{toTitleCase(details.companyName)}</div>
+        <div>
+            <h1>Name: {toTitleCase(details.companyName)}</h1>
+            <h2>Careers Page: <a target="_blank" href={details.careerPage}>Click here</a></h2>
+            <hr />
+        </div>
     )
 }
 
