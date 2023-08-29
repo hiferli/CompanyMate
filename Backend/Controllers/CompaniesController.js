@@ -1,3 +1,4 @@
+import { response } from 'express';
 import Company from '../Models/Company.js'
 
 export const getCompanies = async (request , response) => {
@@ -64,9 +65,31 @@ export const updateCompany = async (request , response) => {
     try {
         const id = request.params.id;
         const newData = request.body;
-
+        
         const updatedCompany = await Company.findByIdAndUpdate(id , newData , {new: true});
         return response.status(200).json(updatedCompany) 
+    } catch (error) {
+        response.status(500).json({
+            "Message": error.message
+        }) 
+    }
+}
+
+export const incrementViews = async (request , response) => {
+    try {
+        const id = request.params.id;
+        const incrementCompany = await Company.findById(id);
+        
+        if(!incrementCompany){
+            return response.status(400).json({
+                "Message": "Company Not Found!"
+            })
+        }
+        
+        incrementCompany.numberOfViews += 1;
+        await incrementCompany.save();
+        
+        return response.status(200).json(incrementCompany);
     } catch (error) {
         response.status(500).json({
             "Message": error.message
