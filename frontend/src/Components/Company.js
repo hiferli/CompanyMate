@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from 'axios'
+import { incrementCompanyViewsRoute } from '../Utilities/Routes';
 
 function toTitleCase(text) {
     return text
@@ -9,10 +11,18 @@ function toTitleCase(text) {
 }
 
 const Company = ({ details }) => {
+    const incrementCompanyViews = async () => {
+        const incrementRoute = incrementCompanyViewsRoute + "/" + details._id;
+        console.log(incrementRoute)
+        await axios.put(incrementRoute)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error))
+    }
+    
     return (
         <div>
             <h1>Name: {toTitleCase(details.companyName)}</h1>
-            <h2>Careers Page: <a target="_blank" href={details.careerPage}>Click here</a></h2>
+            <h2>Careers Page: <a target="_blank" href={details.careerPage} onClick={incrementCompanyViews}>Click here</a></h2>
             <hr />
         </div>
     )
