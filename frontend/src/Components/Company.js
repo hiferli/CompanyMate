@@ -48,6 +48,7 @@ const Company = ({ details }) => {
             if(isValid()){
                 // alert(isValid());
                 updateInDatabase();
+                window.location.reload(); 
             }
         } else {
             setFormData(details)
