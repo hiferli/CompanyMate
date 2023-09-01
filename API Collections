@@ -1,0 +1,114 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Careers",
+    "dateExported": "2023-09-01T12:05:47.841Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "31c5cabc-b768-473a-b6ad-493961cf0524",
+            "colId": "30b13808-c342-41a7-ab1f-f4ca204a58eb",
+            "containerId": "",
+            "name": "Get Companies",
+            "url": "http://localhost:5000/api/companies",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-08-24T16:42:11.159Z",
+            "modified": "2023-08-29T15:18:18.905Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "81420b93-5c1c-4a17-9487-a8367db82d58",
+            "colId": "30b13808-c342-41a7-ab1f-f4ca204a58eb",
+            "containerId": "",
+            "name": "Upload Company",
+            "url": "http://localhost:5000/api/companies",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-24T17:44:08.742Z",
+            "modified": "2023-08-28T16:28:24.091Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"companyName\": \"Amazon\",\n  \"careerPage\": \"https://www.amazon.jobs/en/job_categories\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3fbb6b8e-46af-4bab-b7a9-cfae99cc24ca",
+            "colId": "30b13808-c342-41a7-ab1f-f4ca204a58eb",
+            "containerId": "",
+            "name": "Delete Company",
+            "url": "http://localhost:5000/api/companies/<Company _id>",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-08-24T17:56:40.820Z",
+            "modified": "2023-08-24T18:33:48.079Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fb20c48c-4218-4b37-adff-3f788e1e6b44",
+            "colId": "30b13808-c342-41a7-ab1f-f4ca204a58eb",
+            "containerId": "",
+            "name": "Update Company",
+            "url": "http://localhost:5000/api/companies/<Company _id>",
+            "method": "PATCH",
+            "sortNum": 40000,
+            "created": "2023-08-24T18:41:58.182Z",
+            "modified": "2023-08-24T18:50:43.997Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"careerPage\": \"https://careers.microsoft.com/\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d4afb8c8-01d9-424f-b181-ea6605d9c2be",
+            "colId": "30b13808-c342-41a7-ab1f-f4ca204a58eb",
+            "containerId": "",
+            "name": "Inrement Views",
+            "url": "http://localhost:5000/api/companies/<Company _id>",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-08-29T15:18:47.914Z",
+            "modified": "2023-08-29T15:19:39.457Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
