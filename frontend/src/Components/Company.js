@@ -61,8 +61,10 @@ const Company = ({ details }) => {
                     <ShowCompany details={details}/>
                 )
             }
-
+            
+            
             <button onClick={makeChanges}>{update ? 'Make Changes' : 'Update'}</button>
+            { update ? <button onClick={() => setUpdate(update => !update)}>X</button> : <></> }
             <hr />
         </div>
     )
